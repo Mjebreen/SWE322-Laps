@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,19 +10,40 @@
 
 <?php
 
-$host_ip="localhost:3307"
-$username="root";
-$password="";
-$database="DB_lab"
+$host_ip = 'localhost:3306';
+$username = 'root';
+$password = '';
+$database = 'db_name';
 
-$comn mysql_connect($host_ip,$username,$password,$database)
 
-if(mysqlquery($comn,$query)){
-    echo "Data has been succefully inserted"
-    else echo "Unknown error"
-    $query="insert into table_01"
+$conn = mysqli_connect($host_ip, $username, $password, $database);
+
+
+if ($conn) {
+     echo "Connected successfully";
+} else {
+    die("Connection failed:" . mysqli_connect_error());
 }
 
+
+$sql ="INSERT INTO table_name (col_1, col_2, col_3, col_4) VALUES (202091314, 'Mohed', 'Mjebreeiuiun', 'mj@twiinds.gg')";
+
+
+if ($conn->query($sql) === True) {
+echo "<br>";
+echo 'Data inserted successfully';
+}
+else{
+
+    echo "<br>";
+    echo 'Data inserted incorrectly';
+    
+}
+
+
+$conn->close();
+
 ?>
+
 </body>
 </html>
