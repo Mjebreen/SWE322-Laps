@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP LAP_DB Mohammed saad jebreen</title>
+</head>
+<body>
+
+<?php
+
+$host_ip = 'localhost:3306';
+$username = 'root';
+$password = '';
+$database = 'lab_db';
+
+
+$conn = mysqli_connect($host_ip, $username, $password, $database);
+
+
+if ($conn) {
+     echo '<h2>Lab Data Base connected</h2>';
+} else {
+    die("Connection failed to the Lab Data Base:" . mysqli_connect_error());
+}
+
+
+$sql ="INSERT INTO 06_lab (F_name, L_name, S_id, Major) VALUES ('Mohammed', 'Bin Jebreen', 202111314, 'SWE')";
+
+
+if ($conn->query($sql) === True) {
+echo "<br><br>";
+echo '<h2>Data inserted successfully</h2>';
+}
+else{
+
+    echo "<br>";
+    echo 'Data inserted incorrectly';
+    
+}
+
+
+$conn->close();
+
+?>
+
+</body>
+</html>
